@@ -1,0 +1,11 @@
+# Carpetas de compilación y salida
+out/
+bin/
+
+# Configuraciones del editor (IntelliJ)
+.idea/
+*.iml
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
