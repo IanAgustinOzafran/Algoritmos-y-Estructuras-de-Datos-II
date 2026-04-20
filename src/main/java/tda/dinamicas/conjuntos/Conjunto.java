@@ -2,69 +2,59 @@ package tda.dinamicas.conjuntos;
 
 public class Conjunto implements ConjuntoTDA {
 
-    class Nodo {
-        int info;
-        Nodo sig;
-    }
-
-    Nodo origen;
+    private Nodo cabeza; // apunta al primer nodo de la lista
 
     @Override
     public void InicializarConjunto() {
-        origen = null;
+        cabeza = null;
     }
 
     @Override
     public void Agregar(int x) {
+        // Solo agrega si el elemento no pertenece al conjunto (sin duplicados).
         if (!Pertenece(x)) {
-            Nodo nuevo = new Nodo();
-            nuevo.info = x;
-            nuevo.sig = origen;
-            origen = nuevo;
+            cabeza = new Nodo(x, cabeza);
         }
     }
 
     @Override
     public void Sacar(int x) {
-        if (origen != null) {
+        Nodo curr = cabeza;
+        Nodo prev = null;
 
-            if (origen.info == x) {
-                origen = origen.sig;
+        while (curr != null && curr.getData() != x) {
+            prev = curr;
+            curr = curr.getNext();
+        }
+
+        if (curr != null) {
+            if (prev == null) {
+                cabeza = curr.getNext();
             } else {
-                Nodo aux = origen;
-
-                while (aux.sig != null && aux.sig.info != x) {
-                    aux = aux.sig;
-                }
-
-                if (aux.sig != null) {
-                    aux.sig = aux.sig.sig;
-                }
+                prev.setNext(curr.getNext());
             }
         }
-    }
-
-    @Override
-    public int Elegir() {
-        return origen.info;
-    }
-
-    @Override
-    public boolean Pertenece(int x) {
-        Nodo aux = origen;
-
-        while (aux != null) {
-            if (aux.info == x) {
-                return true;
-            }
-            aux = aux.sig;
-        }
-
-        return false;
     }
 
     @Override
     public boolean ConjuntoVacio() {
-        return origen == null;
+        return cabeza == null;
+    }
+
+    @Override
+    public boolean Pertenece(int x) {
+        Nodo curr = cabeza;
+        while (curr != null) {
+            if (curr.getData() == x) {
+                return true;
+            }
+            curr = curr.getNext();
+        }
+        return false;
+    }
+
+    @Override
+    public int Elegir() {
+        return cabeza.getData();
     }
 }

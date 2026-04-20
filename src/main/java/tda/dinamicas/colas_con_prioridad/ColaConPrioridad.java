@@ -30,16 +30,23 @@ public class ColaConPrioridad implements ColaConPrioridadTDA {
 
     @Override
     public void Desacolar() {
-
-    }
-
-    @Override
-    public int Primero() {
-        return 0;
+        if (!ColaVacia()) {
+            frente = frente.getNext();
+        }
     }
 
     @Override
     public boolean ColaVacia() {
-        return false;
+        return frente == null;
+    }
+
+    @Override
+    public int Primero() {
+        return frente.getData();
+    }
+
+    @Override
+    public int Prioridad() {
+        return frente.getPrioridad();
     }
 }
