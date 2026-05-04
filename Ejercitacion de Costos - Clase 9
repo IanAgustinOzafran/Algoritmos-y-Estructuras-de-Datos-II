@@ -1,0 +1,94 @@
+Ejercitación costos - Clase 9 - 04/05/26
+
+Ejercicio 1: Análisis de ciclos anidados
+Consigna: Dado el siguiente método que busca un elemento y realiza una comprobación secundaria en el resto del arreglo, determiná su familia de complejidad temporal O en el peor caso. Justificá tu respuesta analizando los ciclos.
+
+public static int buscarYValidar(int[] array) {
+    for(int i = 0; i < array.length; i++) { // Ciclo N1
+        if(array[i] == 5) { // C1
+            return i;
+        } else {
+            for(int j = 0; j < i; j++) { // Ciclo N2
+                if(array[j] == 6) { // C3
+                    return i;
+                }
+            }
+        }
+    }
+    return -1; // C5
+}
+
+- la funcion buscarYValidar recibe una lista de elementos.
+- recorre el largo de la lista y para cada elemento si es 5 el ciclo termina y devuelve el valor de i.
+- si recorre toda la lista y no encuentra el elemento 5 entonces;
+- declara un for para un valor j que recorre nuevamente toda la lista y si el valor es 6, entonces;
+- devuelve i, si no encuentra ninguno de los valores entonces devuelve -1.
+- Pero hasta entonces recorre con 2 ciclos for, el largo de la lista. En el peor de los casos el costo es cuadratico.
+
+Ejercicio 2: Análisis de un algoritmo integrador (Tipo Examen)
+
+Consigna: Se presenta el método filtrar(limite), el cual recibe una Cola original, identifica los elementos mayores a un valor "límite" y los devuelve en una nueva estructura, asegurando que la Cola original quede idéntica a su estado inicial al terminar el proceso.
+
+El algoritmo sigue estos pasos:
+
+- Recorre la cola original de n elementos extrayéndolos uno a uno.
+- Guarda cada elemento en una estructura auxiliar tmp.
+- Si el elemento es mayor al límite, lo guarda también en la cola de resultados res.
+- Al finalizar, vuelve a volcar los elementos de tmp a la cola original para restaurarla.
+
+Preguntas:
+
+- (a) Determiná la complejidad temporal O(n) justificando la cantidad de recorridos completos que se realizan sobre los datos .
+- (b) Determiná la complejidad espacial O(n) analizando la necesidad de memoria adicional para las estructuras auxiliares (tmp y res)
+
+---
+
+La funcion recibe una cola original, la recorre, luego extrae los elementos uno a uno. Luego guarda los elementos en una estructura auxiliar temporal. Y ademas si se cumple cierta condicion la almacena en otra estructura res. 
+
+Al finalizar vuelve a volcar los elementos de temp a la cola original para restaurarla.
+
+### **(a) Complejidad temporal**
+
+El algoritmo hace básicamente **dos recorridos completos sobre la cola**:
+
+1. **Primer recorrido (n elementos):**
+    - Desencola cada elemento → O(1)
+    - Lo encola en `tmp` → O(1)
+    - Compara con el límite → O(1)
+    - Eventualmente lo encola en `res` → O(1)
+    - Todo esto ocurre **n veces**, entonces: **O(n)**
+    
+2. **Segundo recorrido (n elementos):**
+    - Se recorren los elementos de `tmp` para restaurar la cola original
+    - Cada operación (desencolar de `tmp` + encolar en original) es O(1)
+    - Nuevamente **n operaciones → O(n)**
+    - O(n) + O(n) = **O(2n)**
+    - Se simplifica eliminando constantes → **O(n)**
+    
+    **Respuesta final:**
+    
+    La complejidad temporal es **O(n)** porque se realizan **dos recorridos completos lineales** sobre los n elementos.
+    
+
+### **(b) Complejidad espacial**
+
+Se usan dos estructuras auxiliares:
+
+- `tmp`: guarda **todos los elementos** → tamaño n
+- `res`: guarda **solo los mayores al límite** → en el peor caso también puede tener n elementos
+
+**Caso peor:**
+
+- `tmp` → n elementos
+- `res` → n elementos
+
+Total memoria adicional: **n + n = 2n**
+
+Se simplifica → **O(n)**
+
+**Respuesta final:**
+
+La complejidad espacial es O(n) porque se utilizan estructuras auxiliares cuyo tamaño crece linealmente con la cantidad de elementos.
+
+La complejidad espacial es **O(n)** porque se utilizan estructuras auxiliares cuyo tamaño crece linealmente con la cantidad de elementos.
+
