@@ -37,9 +37,9 @@ public static void procesoMisterioso(int[] arreglo) {
 
 7. Si el elemento del arreglo es mayor que 100 muestra por pantalla la posicion del elemento.
 
-8. Por lo tanto recorre 2 veces todo el arreglo y lo hace en 2 bucles separados, por lo tanto es O(n) + O(n) = 2 O(n).
+8. Por lo tanto recorre 2 veces todo el arreglo y lo hace en 2 bucles separados, por lo tanto es O(n) + O(n) = 2 O(n). Que quedaria simplemente en O(n).
 
-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 EJERCICIO 2: El "Bardo" de los Ciclos Anidados
 Analizá el método validarPares y determiná su complejidad temporal. ¿Qué sucede si el número que buscamos está en la primera posición? ¿Y si no está? Enfocate en el peor caso.
@@ -63,22 +63,22 @@ public static boolean validarPares(int[][] matriz) {
 
 2. Luego hace un ciclo for que recorre las filas, y luego otro que recorre las columnas si el resto del elemento dividido 2 es cero, dice que el elemento par fue hallado. De otra forma devuelve false.
 
-3. Como son dos ciclos for y no estan separados el costo lineal es O(n)*O(n). = O(n)**2.
+3. Como son dos ciclos for y estan anidados el costo lineal es O(n)*O(n). = Entonces el costo quedaria en: O(n)**2.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------------------
-
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 EJERCICIO 3: Comparación de Implementaciones (TDA Cola)
 
 Basándote en las tablas de costos de la cátedra, compará la operación Acolar(x) en:
 
 ColaPU (Estática): Donde el nuevo elemento va siempre a la posición 0 del arreglo.
+
 ColaLD (Dinámica): Donde se utiliza un puntero al último nodo. Pregunta: ¿Cuál es el costo de cada una y por qué la implementación estática suele ser más "pesada" en este caso?
-
-
 
 1. La comparacion de la ColaPU (estatica) es decir el primer elemento siempre va al final, lo que hace es mover todos los elementos a la derecha por cada insercion.
 
-2. Mientras que la ColaLD, el costo resulta constante porque la cola siempre tiene un puntero al ultimo nodo. Es por todo eso que la implementacion estatica resulta peor en este caso.
+2. Mientras que la ColaLD, el costo resulta constante porque la cola siempre tiene un puntero al ultimo nodo. 
+
+   Es por todo eso que la implementacion estatica resulta peor en costo en este caso.
 
 
 
