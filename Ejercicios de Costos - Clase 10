@@ -1,0 +1,85 @@
+Ejercicios de Costos:
+
+EJERCICIO 1: Análisis de Código Secuencial vs. Iterativo
+
+Determiná la familia de complejidad temporal O del siguiente método en el peor caso. 
+
+Justificá desglosando el costo de cada bloque.
+
+
+public static void procesoMisterioso(int[] arreglo) {
+    int n = arreglo.length;
+    int a = 10;                         // (Instrucción 1)
+    System.out.println("Inicio");        // (Instrucción 2)
+
+    for (int i = 0; i < n; i++) {       // (Bucle 1)
+        arreglo[i] = arreglo[i] * 2;
+    }
+
+    for (int j = 0; j < n; j++) {       // (Bucle 2)
+        if (arreglo[j] > 100) {
+            System.out.println(arreglo[j]);
+        }
+    }
+}
+
+
+la function recibe un arreglo con una cantidad n de elementos.
+
+declara un n del largo del arreglo
+
+declara un a = 10
+
+luego hace un ciclo for que va desde cero hasta el largo del arreglo.
+
+y lo que hace es multiplicar cada elemento del arreglo * 2.
+
+Luego hace un ciclo for que va desde cero hasta el largo del arreglo nuevamente.
+
+if el elemento del arreglo es mayor que 100 muestra por pantalla la posicion del elemento.
+
+por lo tanto recorre 2 veces todo el arreglo y lo hace en 2 bucles separados, por lo tanto es O(n) + O(n) = 2 O(n).
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+EJERCICIO 2: El "Bardo" de los Ciclos Anidados
+Analizá el método validarPares y determiná su complejidad temporal. ¿Qué sucede si el número que buscamos está en la primera posición? ¿Y si no está? Enfocate en el peor caso.
+
+
+public static boolean validarPares(int[][] matriz) {
+    int n = matriz.length;
+    for (int i = 0; i < n; i++) {               // Ciclo Externo
+        for (int j = 0; j < n; j++) {           // Ciclo Interno
+            if (matriz[i][j] % 2 == 0) {
+                System.out.println("Par hallado");
+            }
+        }
+    }
+    return false;
+}
+
+
+
+tenemos la function validarPares, lo que hace es recibir una matriz. Luego declara una variable n que es del largo de la matriz.
+
+Luego hace un ciclo for que recorre las filas, y luego otro que recorre las columnas si el resto del elemento dividido 2 es cero, dice que el elemento par fue hallado. De otra forma devuelve false.
+
+Como son dos ciclos for y no estan separados el costo lineal es O(n)*O(n). = O(n)**2.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+EJERCICIO 3: Comparación de Implementaciones (TDA Cola)
+
+Basándote en las tablas de costos de la cátedra, compará la operación Acolar(x) en:
+
+ColaPU (Estática): Donde el nuevo elemento va siempre a la posición 0 del arreglo.
+ColaLD (Dinámica): Donde se utiliza un puntero al último nodo. Pregunta: ¿Cuál es el costo de cada una y por qué la implementación estática suele ser más "pesada" en este caso?
+
+
+
+La comparacion de la ColaPU (estatica) es decir el primer elemento siempre va al final, lo que hace es mover todos los elementos a la derecha por cada insercion.
+
+Mientras que la ColaLD, el costo resulta constante porque la cola siempre tiene un puntero al ultimo nodo. Es por todo eso que la implementacion estatica resulta peor en este caso.
+
+
+
