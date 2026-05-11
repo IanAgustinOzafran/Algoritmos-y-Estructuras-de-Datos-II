@@ -78,7 +78,7 @@ ColaLD (Dinámica): Donde se utiliza un puntero al último nodo. Pregunta: ¿Cu�
 
 2. Mientras que la ColaLD, el costo resulta constante porque la cola siempre tiene un puntero al ultimo nodo. 
 
-   Es por todo eso que la implementacion estatica resulta peor en costo en este caso.
+3. Es por todo eso que la implementacion estatica resulta peor en costo en este caso.
 
 
 
