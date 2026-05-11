@@ -23,22 +23,21 @@ public static void procesoMisterioso(int[] arreglo) {
     }
 }
 
+1. la funcion recibe un arreglo con una cantidad n de elementos.
 
-la function recibe un arreglo con una cantidad n de elementos.
+2. declara un n del largo del arreglo
 
-declara un n del largo del arreglo
+3. declara un a = 10
 
-declara un a = 10
+4. luego hace un ciclo for que va desde cero hasta el largo del arreglo.
 
-luego hace un ciclo for que va desde cero hasta el largo del arreglo.
+5. Lo que hace es multiplicar cada elemento del arreglo * 2.
 
-y lo que hace es multiplicar cada elemento del arreglo * 2.
+6. Luego hace un ciclo for que va desde cero hasta el largo del arreglo nuevamente.
 
-Luego hace un ciclo for que va desde cero hasta el largo del arreglo nuevamente.
+7. Si el elemento del arreglo es mayor que 100 muestra por pantalla la posicion del elemento.
 
-if el elemento del arreglo es mayor que 100 muestra por pantalla la posicion del elemento.
-
-por lo tanto recorre 2 veces todo el arreglo y lo hace en 2 bucles separados, por lo tanto es O(n) + O(n) = 2 O(n).
+8. Por lo tanto recorre 2 veces todo el arreglo y lo hace en 2 bucles separados, por lo tanto es O(n) + O(n) = 2 O(n).
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -60,11 +59,11 @@ public static boolean validarPares(int[][] matriz) {
 
 
 
-tenemos la function validarPares, lo que hace es recibir una matriz. Luego declara una variable n que es del largo de la matriz.
+1. tenemos la funcion validarPares, lo que hace es recibir una matriz. Luego declara una variable n que es del largo de la matriz.
 
-Luego hace un ciclo for que recorre las filas, y luego otro que recorre las columnas si el resto del elemento dividido 2 es cero, dice que el elemento par fue hallado. De otra forma devuelve false.
+2. Luego hace un ciclo for que recorre las filas, y luego otro que recorre las columnas si el resto del elemento dividido 2 es cero, dice que el elemento par fue hallado. De otra forma devuelve false.
 
-Como son dos ciclos for y no estan separados el costo lineal es O(n)*O(n). = O(n)**2.
+3. Como son dos ciclos for y no estan separados el costo lineal es O(n)*O(n). = O(n)**2.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -77,9 +76,9 @@ ColaLD (Dinámica): Donde se utiliza un puntero al último nodo. Pregunta: ¿Cu�
 
 
 
-La comparacion de la ColaPU (estatica) es decir el primer elemento siempre va al final, lo que hace es mover todos los elementos a la derecha por cada insercion.
+1. La comparacion de la ColaPU (estatica) es decir el primer elemento siempre va al final, lo que hace es mover todos los elementos a la derecha por cada insercion.
 
-Mientras que la ColaLD, el costo resulta constante porque la cola siempre tiene un puntero al ultimo nodo. Es por todo eso que la implementacion estatica resulta peor en este caso.
+2. Mientras que la ColaLD, el costo resulta constante porque la cola siempre tiene un puntero al ultimo nodo. Es por todo eso que la implementacion estatica resulta peor en este caso.
 
 
 
